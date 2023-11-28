@@ -1,16 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: draft-demo
+  creationTimestamp: null
   labels:
     app: draft-demo
+  name: draft-demo
   namespace: draft-system
 spec:
   selector:
     matchLabels:
       app: draft-demo
+  strategy: {}
   template:
+    metadata:
+      creationTimestamp: null
     spec:
       containers:
-        - name: draft-demo
-          image: draft-demo:latest
+      - image: acrbahedev.azurecr.io/draft-demo
+        name: draft-demo
+        resources: {}
+status: {}
