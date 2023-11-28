@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: draft-demo
+  labels:
+    app: draft-demo
+  namespace: draft-system
+spec:
+  selector:
+    matchLabels:
+      app: draft-demo
+  template:
+    spec:
+      containers:
+        - name: draft-demo
+          image: draft-demo:latest

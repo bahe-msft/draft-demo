@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: draft-demo
+  labels:
+    app: draft-demo
+  namespace: draft-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: draft-demo
+  template:
+    metadata:
+      labels:
+        app: draft-demo
+    spec:
+      containers:
+        - name: draft-demo
+          image: draft-demo:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8888

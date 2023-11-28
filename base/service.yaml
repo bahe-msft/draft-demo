@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: draft-demo
+  namespace: draft-system
+spec:
+  type: LoadBalancer
+  selector:
+    app: draft-demo
+  ports:
+    - protocol: TCP
+      port: 8888
+      targetPort: 8888
