@@ -5,5 +5,5 @@ controller:
 
   replicaCount: 2
 
-commonLabels:
- owner-team: draft-ingress
+  annotations:
+    owner-team: draft-ingress

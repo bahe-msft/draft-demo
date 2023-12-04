@@ -6,5 +6,5 @@ patchesStrategicMerge:
   - deployment.yaml
   - service.yaml
 
-commonLabels:
+commonAnnotations:
   owning-team: draft-app
