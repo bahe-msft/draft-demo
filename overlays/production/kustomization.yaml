@@ -2,6 +2,7 @@ namePrefix: production-
 namespace: draft-system
 resources:
   - ../../base
+  - ingress.yaml
 patchesStrategicMerge:
   - deployment.yaml
   - service.yaml
