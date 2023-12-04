@@ -4,7 +4,6 @@ metadata:
   name: draft-demo
   labels:
     app: draft-demo
-  namespace: draft-system
 spec:
   replicas: 1
   selector:
