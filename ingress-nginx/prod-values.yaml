@@ -1,0 +1,9 @@
+controller:
+  service:
+    annotations:
+      service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path: /healthz
+
+  replicaCount: 2
+
+commonLabels:
+ owner-team: draft-ingress
