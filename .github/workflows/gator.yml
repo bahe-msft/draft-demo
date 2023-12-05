@@ -2,7 +2,8 @@ name: Run gator
 
 on:
   pull_request:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   gator-test:
@@ -17,7 +18,11 @@ jobs:
         uses: imranismail/setup-kustomize@v2
       - name: Install gator
         run: |
-          go get github.com/open-policy-agent/gatekeeper/cmd/gator
+          curl -sLO https://github.com/open-policy-agent/gatekeeper/releases/download/v3.13.4/gator-v3.13.4-linux-amd64.tar.gz
+          tar -xzf gator-v3.13.4-linux-amd64.tar.gz
+          rm gator-v3.13.4-linux-amd64.tar.gz
+          mv ./gator /usr/local/bin
+          gator version
       - name: Run gator
         run: |
           kustomize build ./overlays/production > production-app.yaml
