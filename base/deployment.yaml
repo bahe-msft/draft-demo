@@ -4,8 +4,6 @@ metadata:
   name: draft-demo
   labels:
     app: draft-demo
-  annotations:
-    foo: bar
 spec:
   replicas: 1
   selector:
