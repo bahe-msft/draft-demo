@@ -23,6 +23,7 @@ jobs:
           go mod init tmp
           GOBIN=/usr/bin go get github.com/open-policy-agent/gatekeeper/v3/cmd/gator@latest
           rm -rf "$TMP_DIR"
+          ls -lh /usr/bin
           gator version
       - name: Run gator
         run: |
