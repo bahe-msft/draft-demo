@@ -21,7 +21,7 @@ jobs:
           TMP_DIR=$(mktemp -d)
           cd "$TMP_DIR"
           go mod init tmp
-          go get github.com/open-policy-agent/gatekeeper/v3/cmd/gator@latest
+          GOBIN=/usr/bin go get github.com/open-policy-agent/gatekeeper/v3/cmd/gator@latest
           rm -rf "$TMP_DIR"
           gator version
       - name: Run gator
