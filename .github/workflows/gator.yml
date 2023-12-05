@@ -18,12 +18,10 @@ jobs:
         uses: imranismail/setup-kustomize@v2
       - name: Install gator
         run: |
-          TMP_DIR=$(mktemp -d)
-          cd "$TMP_DIR"
-          go mod init tmp
-          GOBIN=/usr/bin go get github.com/open-policy-agent/gatekeeper/v3/cmd/gator@latest
-          rm -rf "$TMP_DIR"
-          ls -lh /usr/bin
+          curl -sLO https://github.com/open-policy-agent/gatekeeper/releases/download/v3.13.4/gator-v3.13.4-linux-amd64.tar.gz
+          tar -xzf gator-v3.13.4-linux-amd64.tar.gz
+          rm gator-v3.13.4-linux-amd64.tar.gz
+          mv ./gator /usr/local/bin
           gator version
       - name: Run gator
         run: |
