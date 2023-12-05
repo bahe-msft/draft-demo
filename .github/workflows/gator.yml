@@ -25,7 +25,11 @@ jobs:
           gator version
       - name: Run gator
         run: |
-          kustomize build ./overlays/production > production-app.yaml
+          # kustomize build ./overlays/production > production-app.yaml
           kustomize build ./policy > policy.yaml
-          gator test --filename production-app.yaml --filename policy.yaml
+
+          gator test --filename policy.yaml --filename ./overlays/production --filename base/
+
+          # helm?
+          # gator test --filename ./ingress-nginx ?
           
