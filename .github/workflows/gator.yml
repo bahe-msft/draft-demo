@@ -1,0 +1,26 @@
+name: Run gator
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  gator-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup go
+        uses: actions/setup-go@v4
+        with:
+          go-version: 1.21
+      - name: Install Kustomize
+        uses: imranismail/setup-kustomize@v2
+      - name: Install gator
+        run: |
+          go get github.com/open-policy-agent/gatekeeper/cmd/gator
+      - name: Run gator
+        run: |
+          kustomize build ./overlays/production > production-app.yaml
+          kustomize build ./policy > policy.yaml
+          gator test --filename production-app.yaml --filename policy.yaml
+          
