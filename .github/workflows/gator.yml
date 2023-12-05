@@ -18,7 +18,12 @@ jobs:
         uses: imranismail/setup-kustomize@v2
       - name: Install gator
         run: |
-          go install github.com/open-policy-agent/gatekeeper/cmd/gator@v3.13.4
+          TMP_DIR=$(mktemp -d)
+          cd "$TMP_DIR"
+          go mod init tmp
+          go get github.com/open-policy-agent/gatekeeper/v3/cmd/gator@latest
+          rm -rf "$TMP_DIR"
+          gator version
       - name: Run gator
         run: |
           kustomize build ./overlays/production > production-app.yaml
