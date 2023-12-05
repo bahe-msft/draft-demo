@@ -2,7 +2,8 @@ name: Run gator
 
 on:
   pull_request:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   gator-test:
