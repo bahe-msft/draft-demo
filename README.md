@@ -45,14 +45,14 @@ https://github.com/bahe-msft/draft-demo/actions/runs/7107991414/job/19350445670?
 
 1. Some policies might more suitable for common level configurations, for example, common labels/annotations.
    It's easier to verify on shared configuration like kustomization.yaml (`kustomize`) or values.yaml (`helm`)
-2. In pull request phrase, we want to focus more on the actual changes instead of the merged changes.
+2. In pull request phase, we want to focus more on the actual changes instead of the merged changes.
    Errors from the merged files are difficult to trace back to the source file changes.
 
 
 ### Most of the gatekeeper-library policies are pod oriented
 
 Gatekeeper checks in pod level, therefore most of the rules from the gatekeeper-library are expecting the target is a pod.
-However, when running in the same rule in pull request phrase, we cannot detect any issues.
+However, when running in the same rule in pull request phase, we cannot detect any issues.
 
 Sample build:
 
