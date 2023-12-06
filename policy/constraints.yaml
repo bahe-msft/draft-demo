@@ -10,5 +10,19 @@ spec:
         kinds: ["*"]
   parameters:
     hostNetwork: true
-    min: 1024
-    max: 9000
+    min: 1
+    max: 1024
+---
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sPSPHostNetworkingPortsControllerAware
+metadata:
+  name: psp-host-network-ports
+spec:
+  match:
+    kinds:
+      - apiGroups: ["*"]
+        kinds: ["*"]
+  parameters:
+    hostNetwork: true
+    min: 1
+    max: 1024
